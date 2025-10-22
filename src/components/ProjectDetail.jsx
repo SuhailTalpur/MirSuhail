@@ -5,15 +5,15 @@ import { IoChevronBack } from "react-icons/io5";
 
 // Example images
 import img1 from "../assets/images/project1.PNG";
-import img2 from "../assets/images/project11.png";
-import img3 from "../assets/images/project12.png";
-import img4 from "../assets/images/project2.png";
-import img5 from "../assets/images/project21.png";
-import img6 from "../assets/images/project23.png";
-import img7 from "../assets/images/project3.png";
-import img8 from "../assets/images/project32.png";
-import img9 from "../assets/images/project33.png";
-import img10 from "../assets/images/project4.png";
+import img2 from "../assets/images/project11.PNG";
+import img3 from "../assets/images/project12.PNG";
+import img4 from "../assets/images/project2.PNG";
+import img5 from "../assets/images/project21.PNG";
+import img6 from "../assets/images/project23.PNG";
+import img7 from "../assets/images/project3.PNG";
+import img8 from "../assets/images/project32.PNG";
+import img9 from "../assets/images/project33.PNG";
+import img10 from "../assets/images/project4.PNG";
 
 const projectData = {
   1: {
