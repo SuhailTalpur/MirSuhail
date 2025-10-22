@@ -4,7 +4,7 @@ import { FaGithub, FaArrowLeft, FaArrowRight, FaTimes } from "react-icons/fa";
 import { IoChevronBack } from "react-icons/io5";
 
 // Example images
-import img1 from "../assets/images/project1.png";
+import img1 from "../assets/images/project1.PNG";
 import img2 from "../assets/images/project11.png";
 import img3 from "../assets/images/project12.png";
 import img4 from "../assets/images/project2.png";
