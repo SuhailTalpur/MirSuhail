@@ -13,7 +13,7 @@ import img6 from "../assets/images/project23.PNG";
 import img7 from "../assets/images/project3.PNG";
 import img8 from "../assets/images/project32.PNG";
 import img9 from "../assets/images/project33.PNG";
-import img10 from "../assets/images/project4.PNG";
+import img10 from "../assets/images/project4.png";
 
 const projectData = {
   1: {
