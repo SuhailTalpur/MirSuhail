@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import contactimg from "../assets/images/contact.svg";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +11,8 @@ const Contact = () => {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -15,15 +20,41 @@ const Contact = () => {
     });
   };
 
+  // EmailJS keys (add your actual keys here)
+  const SERVICE_ID = "service_y1dqm6h";
+  const TEMPLATE_ID = "template_7cg99dt";
+  const PUBLIC_KEY = "aAMW7nSAksZAHYlw0";
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for reaching out!");
-    setFormData({ name: "", email: "", message: "" });
+    setLoading(true);
+    emailjs
+      .send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        PUBLIC_KEY
+      )
+      .then(
+        () => {
+          toast.success("Thank you for reaching out! Your message has been sent.");
+          setFormData({ name: "", email: "", message: "" });
+          setLoading(false);
+        },
+        (error) => {
+          toast.error("Failed to send message. Please try again later.");
+          setLoading(false);
+        }
+      );
   };
 
   return (
     <section className="bg-[#190019] text-white py-20 px-6 flex flex-col items-center justify-center">
+      <ToastContainer />
       {/* Headings */}
       <div className="text-center mb-10">
         <h2 className="text-2xl md:text-2xl  font-bold mb-3">Contact</h2>
@@ -34,7 +65,6 @@ const Contact = () => {
           Contact us for any queries — always available for you.
         </p>
       </div>
-
 
       <div className="flex rounded-2xl overflow-hidden max-w-4xl w-full flex-col md:flex-row items-center md:items-start gap-6 md:gap-0">
         <img src={contactimg} alt="" className="w-100"/>
@@ -93,9 +123,10 @@ const Contact = () => {
 
         <button
           type="submit"
-          className="w-full bg-[#DFB6B2] text-gray-900 hover:bg-[#FBE4D8] cursor-pointer font-semibold py-2.5 rounded-lg transition duration-200"
+          className={`w-full bg-[#DFB6B2] text-gray-900 hover:bg-[#FBE4D8] cursor-pointer font-semibold py-2.5 rounded-lg transition duration-200 ${loading ? 'opacity-60 cursor-not-allowed' : ''}`}
+          disabled={loading}
         >
-          Submit
+          {loading ? 'Sending...' : 'Submit'}
         </button>
       </form>
       </div>
