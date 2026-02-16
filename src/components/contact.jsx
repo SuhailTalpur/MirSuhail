@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-import contactimg from "../assets/images/contact.svg";
+import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
+import { Send, User, Mail, MessageSquare, Sparkles } from "lucide-react";
+import contactimg from "../assets/images/contact.svg";
 import "react-toastify/dist/ReactToastify.css";
 
 const Contact = () => {
@@ -20,7 +22,7 @@ const Contact = () => {
     });
   };
 
-  // EmailJS keys (add your actual keys here)
+  // EmailJS keys
   const SERVICE_ID = "service_y1dqm6h";
   const TEMPLATE_ID = "template_7cg99dt";
   const PUBLIC_KEY = "aAMW7nSAksZAHYlw0";
@@ -41,7 +43,7 @@ const Contact = () => {
       )
       .then(
         () => {
-          toast.success("Thank you for reaching out! Your message has been sent.");
+          toast.success("Message sent successfully! I'll get back to you soon.");
           setFormData({ name: "", email: "", message: "" });
           setLoading(false);
         },
@@ -53,83 +55,142 @@ const Contact = () => {
   };
 
   return (
-    <section className="bg-[#190019] text-white py-20 px-6 flex flex-col items-center justify-center">
-      <ToastContainer />
-      {/* Headings */}
-      <div className="text-center mb-10">
-        <h2 className="text-2xl md:text-2xl  font-bold mb-3">Contact</h2>
-        <h3 className="text-2xl md:text-3xl font-semibold text-[#FBE4D8] mb-2">
-          Get In Touch With Me
-        </h3>
-        <p className="text-gray-300 max-w-xl mx-auto">
-          Contact us for any queries — always available for you.
-        </p>
+    <section className="relative bg-[#030303] text-white py-24 px-6 overflow-hidden">
+      <ToastContainer theme="dark" />
+
+      {/* Background Decorative Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full -z-10">
+        <div className="absolute top-1/4 right-0 w-96 h-96 bg-purple-600/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-cyan-600/10 blur-[120px] rounded-full" />
       </div>
 
-      <div className="flex rounded-2xl overflow-hidden max-w-4xl w-full flex-col md:flex-row items-center md:items-start gap-6 md:gap-0">
-        <img src={contactimg} alt="" className="w-100"/>
-      {/* Form */}
-      <form
-        onSubmit={handleSubmit}
-        className=" p-8 rounded-r-2xl rounded-l-4xl shadow-lg w-full max-w-md"
-      >
-        <div className="mb-5">
-          <label htmlFor="name" className="block text-sm font-medium mb-2">
-            Name
-          </label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-            placeholder="Enter your name"
-            className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:border-[#FBE4D8] focus:ring-1 focus:ring-[#FBE4D8] outline-none text-gray-200"
-          />
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Header Section */}
+        <div className="text-center mb-16 space-y-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/5 text-purple-400 text-xs font-medium uppercase tracking-widest"
+          >
+            <Sparkles size={14} /> Get in Touch
+          </motion.div>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-5xl font-black"
+          >
+            Let's Build Something <span className="bg-clip-text text-transparent bg-linear-to-r from-purple-400 to-cyan-400">Great</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="text-gray-400 max-w-xl mx-auto"
+          >
+            Have a project in mind or just want to say hi? Feel free to reach out. Always open to new opportunities.
+          </motion.p>
         </div>
 
-        <div className="mb-5">
-          <label htmlFor="email" className="block text-sm font-medium mb-2">
-            Email
-          </label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-            placeholder="Enter your email"
-            className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:border-[#FBE4D8] focus:ring-1 focus:ring-[#FBE4D8] outline-none text-gray-200"
-          />
-        </div>
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 bg-white/5 border border-white/10 backdrop-blur-xl rounded-[2.5rem] p-8 md:p-12 shadow-2xl">
+          {/* Illustration Side */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 w-full flex justify-center"
+          >
+            <img 
+              src={contactimg} 
+              alt="Contact Illustration" 
+              className="w-full max-w-sm md:max-w-md drop-shadow-[0_0_30px_rgba(168,85,247,0.2)] animate-float" 
+            />
+          </motion.div>
 
-        <div className="mb-6">
-          <label htmlFor="message" className="block text-sm font-medium mb-2">
-            Message
-          </label>
-          <textarea
-            name="message"
-            id="message"
-            rows="3"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            placeholder="Write your message here..."
-            className="w-full px-4 py-2 rounded-lg bg-gray-800 border border-gray-700 focus:border-[#FBE4D8] focus:ring-1 focus:ring-[#FBE4D8] outline-none text-gray-200"
-          ></textarea>
-        </div>
+          {/* Form Side */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="flex-1 w-full"
+          >
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-300 ml-1 flex items-center gap-2">
+                  <User size={16} className="text-purple-400" /> Full Name
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  placeholder="John Doe"
+                  className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 outline-none text-white transition-all placeholder:text-gray-600"
+                />
+              </div>
 
-        <button
-          type="submit"
-          className={`w-full bg-[#DFB6B2] text-gray-900 hover:bg-[#FBE4D8] cursor-pointer font-semibold py-2.5 rounded-lg transition duration-200 ${loading ? 'opacity-60 cursor-not-allowed' : ''}`}
-          disabled={loading}
-        >
-          {loading ? 'Sending...' : 'Submit'}
-        </button>
-      </form>
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-300 ml-1 flex items-center gap-2">
+                  <Mail size={16} className="text-blue-400" /> Email Address
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  placeholder="hello@example.com"
+                  className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/20 outline-none text-white transition-all placeholder:text-gray-600"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-sm font-semibold text-gray-300 ml-1 flex items-center gap-2">
+                  <MessageSquare size={16} className="text-cyan-400" /> Message
+                </label>
+                <textarea
+                  name="message"
+                  rows="4"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  placeholder="Tell me about your project..."
+                  className="w-full px-5 py-4 rounded-2xl bg-white/5 border border-white/10 focus:border-cyan-500/50 focus:ring-2 focus:ring-cyan-500/20 outline-none text-white transition-all placeholder:text-gray-600 resize-none"
+                ></textarea>
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                disabled={loading}
+                className={`w-full py-4 rounded-2xl font-bold flex items-center justify-center gap-2 transition-all duration-300 shadow-lg ${
+                  loading 
+                    ? "bg-gray-700 cursor-not-allowed text-gray-400" 
+                    : "bg-linear-to-r from-purple-600 via-blue-600 to-cyan-600 text-white hover:shadow-purple-500/25"
+                }`}
+              >
+                {loading ? (
+                  <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <>
+                    Send Message <Send size={18} />
+                  </>
+                )}
+              </motion.button>
+            </form>
+          </motion.div>
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   );
 };
