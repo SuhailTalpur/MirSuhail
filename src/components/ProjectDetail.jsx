@@ -14,6 +14,14 @@ import img7 from "../assets/images/project3.PNG";
 import img8 from "../assets/images/project32.PNG";
 import img9 from "../assets/images/project33.PNG";
 import img10 from "../assets/images/project4.png";
+import img11 from "../assets/images/project51.PNG";
+import img12 from "../assets/images/project52.PNG";
+import img13 from "../assets/images/project53.PNG";
+import img14 from "../assets/images/project61.PNG";
+import img15 from "../assets/images/project62.PNG";
+import img16 from "../assets/images/project63.PNG";
+import img17 from "../assets/images/project64.PNG";
+import img18 from "../assets/images/project65.PNG";
 
 const projectData = {
   1: {
@@ -44,6 +52,23 @@ const projectData = {
     github: "#",
     tech: ["Frontend", "Firebase", "Motion"],
   },
+  5: {
+    title: "NFT Launchpad",
+    images: [img11, img12, img13],
+    desc: "A platform for launching and managing NFT collections in Blockchain.",
+    github: "#",
+    liveDemo: "https://mintifyx.live/",
+    tech: ["Web3", "React", "Solidity"],
+  },
+  6: {
+    title: "Stakify",
+    images: [img14, img15, img16, img17, img18],
+    desc: "A staking platform for Etherium-based tokens.",
+    github: "#",
+    liveDemo: "https://stakify.tech/",
+    tech: ["Web3", "React", "Solidity"],
+  },
+
 };
 
 const ProjectDetail = () => {
@@ -105,7 +130,7 @@ const ProjectDetail = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left: Interactive Carousel */}
           <div className="space-y-6">
-            <motion.div 
+            <motion.div
               layoutId={`img-${id}`}
               className="relative aspect-video rounded-3xl border border-white/10 bg-white/5 backdrop-blur-sm overflow-hidden group shadow-2xl"
             >
@@ -123,7 +148,7 @@ const ProjectDetail = () => {
               </AnimatePresence>
 
               {/* Action Overlays */}
-              <button 
+              <button
                 onClick={() => setIsModalOpen(true)}
                 className="absolute top-4 right-4 p-3 rounded-xl bg-black/40 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-opacity"
               >
@@ -153,9 +178,8 @@ const ProjectDetail = () => {
                 <button
                   key={idx}
                   onClick={() => setCurrentIndex(idx)}
-                  className={`relative shrink-0 w-24 aspect-video rounded-xl overflow-hidden border-2 transition-all ${
-                    idx === currentIndex ? "border-purple-500 scale-105" : "border-transparent opacity-50 hover:opacity-100"
-                  }`}
+                  className={`relative shrink-0 w-24 aspect-video rounded-xl overflow-hidden border-2 transition-all ${idx === currentIndex ? "border-purple-500 scale-105" : "border-transparent opacity-50 hover:opacity-100"
+                    }`}
                 >
                   <img src={img} className="w-full h-full object-cover" />
                 </button>
@@ -164,7 +188,7 @@ const ProjectDetail = () => {
           </div>
 
           {/* Right: Content Section */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="space-y-8"
@@ -190,19 +214,32 @@ const ProjectDetail = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <motion.a
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-3 bg-linear-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-2xl font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all"
-              >
-                <Github size={20} /> View Source Code
-              </motion.a>
-              <button className="flex items-center justify-center gap-3 bg-white/5 border border-white/10 px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all">
-                Live Demo
-              </button>
+              {/* Show GitHub button for projects 1, 2, 3, 4 */}
+              {["1", "2", "3", "4"].includes(id) && (
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 bg-linear-to-r from-purple-600 to-blue-600 px-8 py-4 rounded-2xl font-bold shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40 transition-all"
+                >
+                  <Github size={20} /> View Source Code
+                </motion.a>
+              )}
+              {/* Show Live Demo button for projects 5, 6 */}
+              {["5", "6"].includes(id) && project.liveDemo && (
+                <motion.a
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  href={project.liveDemo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-3 bg-white/5 border border-white/10 px-8 py-4 rounded-2xl font-bold hover:bg-white/10 transition-all"
+                >
+                  Visit Site
+                </motion.a>
+              )}
             </div>
           </motion.div>
         </div>

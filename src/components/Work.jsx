@@ -7,6 +7,8 @@ import project1 from "../assets/images/project1.PNG";
 import project2 from "../assets/images/project2.PNG";
 import project3 from "../assets/images/project3.PNG";
 import project4 from "../assets/images/project4.png";
+import project5 from "../assets/images/project51.png";
+import project6 from "../assets/images/project61.png";
 
 const projects = [
   {
@@ -36,6 +38,20 @@ const projects = [
     img: project3,
     shortDesc: "A real-time restaurant web app displaying menu items and reservations.",
     tags: ["UX", "Frontend", "API"],
+  },
+    {
+    id: 5,
+    title: "NFT Launchpad",
+    img: project5,
+    shortDesc: "A platform for launching and managing NFT collections in Blockchain.",
+    tags: ["Web3", "React", "Solidity"],
+  },
+    {
+    id: 6,
+    title: "Stakify",
+    img: project6,
+    shortDesc: "A staking platform for Etherium-based tokens.",
+    tags: ["Solidity", "Web3", "React"],
   },
 ];
 

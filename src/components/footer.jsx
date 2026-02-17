@@ -42,12 +42,12 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#about" onClick={(e) => handleScroll(e, "about")} className="hover:text-purple-400 transition-colors">
+                <a href="#skills" onClick={(e) => handleScroll(e, "skills")} className="hover:text-purple-400 transition-colors">
                   Skills
                 </a>
               </li>
               <li>
-                <a href="#services" onClick={(e) => handleScroll(e, "services")} className="hover:text-blue-400 transition-colors">
+                <a href="#projects" onClick={(e) => handleScroll(e, "projects")} className="hover:text-blue-400 transition-colors">
                   Projects
                 </a>
               </li>

@@ -17,12 +17,12 @@ function Home() {
       </section>
 
       {/* About / Skills */}
-      <section id="about">
+      <section id="skills">
         <Card />
       </section>
       <Technologies />
       {/* Projects / Services */}
-      <section id="services">
+      <section id="projects">
         <Work />
       </section>
 
