@@ -168,7 +168,7 @@ const PremiumHeaderHero = () => {
                     >
                         <button onClick={() => setIsMenuOpen(false)} className="absolute top-10 right-10 text-white"><X size={32} /></button>
                         {navLinks.map((link) => (
-                            <a key={link} href="#" onClick={() => setIsMenuOpen(false)} className="text-4xl font-bold hover:text-cyan-400 transition-colors">
+                            <a key={link} href={`#${link.toLowerCase()}`} onClick={() => setIsMenuOpen(false)} className="text-4xl font-bold hover:text-cyan-400 transition-colors">
                                 {link}
                             </a>
                         ))}
