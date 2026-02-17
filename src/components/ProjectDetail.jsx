@@ -43,7 +43,7 @@ const projectData = {
     images: [img10],
     desc: "An AI-powered image generator that creates unique images based on user prompts using advanced machine learning models.",
     github: "https://github.com/SuhailTalpur/AI-Image-Generator-App.git",
-    tech: ["Python", "OpenAI API", "React"],
+    tech: ["MongoDB", "AI API", "React"],
   },
   4: {
     title: "Restaurant Website",

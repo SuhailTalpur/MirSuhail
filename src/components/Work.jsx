@@ -29,8 +29,8 @@ const projects = [
     id: 3,
     title: "AI Image Generator",
     img: project4,
-    shortDesc: "A Solana staking platform with PNFT and escrow contract support.",
-    tags: ["Solana", "Web3", "Next.js"],
+    shortDesc: "An AI-powered image generator using React and AI APIs.",
+    tags: ["AI", "React", "Hugging Face"],
   },
   {
     id: 4,
