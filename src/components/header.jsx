@@ -103,14 +103,14 @@ const PremiumHeaderHero = () => {
                             with seamless user interfaces and robust backend architectures.
                         </motion.p>
 
-                        <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                        {/* <motion.div variants={fadeInUp} className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                             <button className="px-8 py-4 bg-linear-to-r from-purple-600 via-blue-600 to-cyan-600 rounded-full font-bold shadow-[0_0_25px_-5px_rgba(147,51,234,0.5)] hover:scale-105 transition-all flex items-center gap-2">
                                 Hire Me <ArrowRight size={18} />
                             </button>
                             <button className="px-8 py-4 bg-white/5 border border-white/10 rounded-full font-bold backdrop-blur-sm hover:bg-white/10 transition-all">
                                 View Projects
                             </button>
-                        </motion.div>
+                        </motion.div> */}
                     </motion.div>
 
                     {/* Right Side: Image with Decorative Elements */}

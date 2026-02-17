@@ -7,8 +7,8 @@ import project1 from "../assets/images/project1.PNG";
 import project2 from "../assets/images/project2.PNG";
 import project3 from "../assets/images/project3.PNG";
 import project4 from "../assets/images/project4.png";
-import project5 from "../assets/images/project51.png";
-import project6 from "../assets/images/project61.png";
+import project5 from "../assets/images/project51.PNG";
+import project6 from "../assets/images/project61.PNG";
 
 const projects = [
   {
